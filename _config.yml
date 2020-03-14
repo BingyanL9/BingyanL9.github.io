@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 徐代龙的技术专栏
-brief-intro: Android and Python Coder
+title: 梁冰燕的技术专栏
+brief-intro: Java and cloud
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingyanl.github.io" # the base hostname & protocol for your site
 
@@ -17,13 +17,13 @@ permalink: /:year/:month/:day/:title/
 twitter_username: #gaohaoyang126
 facebook_username: #gaohaoyang.water
 github_username:  BingYanl9
-email: 643435675@QQ.com
-weibo_username: 3115521wh
-zhihu_username: hll643435675
-linkedIn_username: gaohaoyang
+email: bingyanl@126.com
+weibo_username: #3115521wh
+zhihu_username: #hll643435675
+linkedIn_username: #gaohaoyang
 dribbble_username:
 
-description_footer: 来自徐代龙的个人专栏！
+description_footer: 来自梁冰燕的个人专栏！
 
 # comments
 # two ways to comment, only choose one, and use your own short name
