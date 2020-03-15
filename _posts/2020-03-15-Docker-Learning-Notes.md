@@ -4,7 +4,7 @@ title:  "[初级]-Docker-学习笔记"
 date:   2020-03-14 21:18:54
 categories: Docker
 tags: Docker Notes
-excerpt: Docker学习笔记，上传本地笔记
+excerpt: Docker学习笔记，上传本地笔记。
 mathjax: true
 ---
 
@@ -277,10 +277,10 @@ docker ps -- print all information of running dockers
     names:  container name that allocates automatically.
 	
 docker logs [-f] [container id | names]-- print the logs of the container. 
-	-f: 让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出
+    -f: 让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出
 
 docker stop  [container id | names]-- stop a running container.
-	命令会向运行中的容器发送一个SIGTERM的信号，然后停止所有的进程
+    命令会向运行中的容器发送一个SIGTERM的信号，然后停止所有的进程
 	
 docker pull [image] 从docker hub中載入鏡像
 
@@ -293,8 +293,8 @@ docker start  [container id | names] 重启容器 ,为容器文件系统创建�
 docker restart [container id | names]正在运行的容器，我们可以使用该命令来重启
 
 docker ps 
-	-l: 查看最后一次创建的容器 
-	-a: 列出所有容器，不管是運行態還是非運行態
+    -l: 查看最后一次创建的容器 
+    -a: 列出所有容器，不管是運行態還是非運行態
 
 docker ps 命令会列出所有运行中的容器。这隐藏了非运行态容器的存在，如果想要找出这些容器，我们需要使用下面这个命令。
 
