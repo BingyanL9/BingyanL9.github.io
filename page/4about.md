@@ -25,11 +25,11 @@ type: page
 
 日常是个矛盾体，很多想法依旧处于比较容易动摇的阶段，因此很期待若干年后的自己嫌弃这个博客上的某个想法的那一刻的到来～
 
-* 2018.7 入职 IBM CDL，Technical consultant-DevOps
+* 2018.7 入职 IBM CDL-Technical consultant-DevOps
 * 2018.7 以3.29/4的绩点毕业于上海海事大学 计算机科学与技术专业
-* 2017.11-2018.7 IBM CDL，Technical consultant-Java Developer（实习生）
-* 2017.7-2017.10 北明软件，ETL工程师（实习生）
-* 2014.9-2018.7 获得上海海事大学一次一等奖学金，两次二等奖学金
+* 2017.11-2018.7 IBM CDL-Technical consultant-Java Developer（实习生）
+* 2017.7-2017.10 北明软件,ETL工程师（实习生）
+* 2014.9-2018.7 获得上海海事大学一次一等奖学金,两次二等奖学金
 * 2014.7 毕业于广东省湛江第一中学
 
     ![](../images/Demo/echo-image.jpg)
