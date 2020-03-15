@@ -10,4 +10,6 @@ Link: https://bingyanl9.github.io/
 
 ## License
 
-[ThemeTheme] License](https://github.com/Gaohaoyang/gaohaoyang.github.io/blob/master/LICENSE.md)
+[Theme]: https://github.com/Gaohaoyang/gaohaoyang.github.io
+
+[License](https://github.com/Gaohaoyang/gaohaoyang.github.io/blob/master/LICENSE.md)
