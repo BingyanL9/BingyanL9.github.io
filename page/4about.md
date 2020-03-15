@@ -37,7 +37,7 @@ type: page
 ## 联系我
 
 * GitHub：[BingyanL9](https://github.com/BingyanL9)
-* email：bingyanl@126.com | lbingyan@cn.ibm.com
+* email：bingyanl@126.com/lbingyan@cn.ibm.com
 * [豆瓣](https://www.douban.com/people/177488727)
 
 
