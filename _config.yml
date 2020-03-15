@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 梁冰燕的个人博客
+title: LBY
 brief-intro: Learning Notes and think
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingyanl9.github.io/bingyanl-blog/" # the base hostname & protocol for your site
@@ -23,20 +23,20 @@ zhihu_username: #hll643435675
 linkedIn_username: #gaohaoyang
 dribbble_username:
 
-description_footer: 来自一位美女程序员的个人博客！
+description_footer: 来自梁冰燕的个人博客！
 
 # comments
 # two ways to comment, only choose one, and use your own short name
 # 两种评论插件，选一个就好了，使用自己的 short_name
 duoshuo_shortname: #hygblog
-disqus_shortname: #gaohaoyang
+disqus_shortname: bingyanl
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
 # hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
 # xxxxx字符串
 baidu_tongji_id: 5668bc69714b00f2f64618f56952d0b4
-google_analytics_id: UA-72449510-4 # google 分析追踪id
+google_analytics_id: G-MEC57WDT8P # google 分析追踪id
 
 # Build settings
 markdown: kramdown
