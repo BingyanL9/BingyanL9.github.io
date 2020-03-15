@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 梁冰燕的技术专栏
-brief-intro: Java and cloud
+title: 梁冰燕的个人博客
+brief-intro: Learning Notes and think
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingyanl9.github.io/bingyanl-blog/" # the base hostname & protocol for your site
 
@@ -23,7 +23,7 @@ zhihu_username: #hll643435675
 linkedIn_username: #gaohaoyang
 dribbble_username:
 
-description_footer: 来自梁冰燕的个人专栏！
+description_footer: 来自一位美女程序员的个人博客！
 
 # comments
 # two ways to comment, only choose one, and use your own short name
@@ -35,7 +35,7 @@ disqus_shortname: #gaohaoyang
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
 # hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
 # xxxxx字符串
-baidu_tongji_id: 552aa8d99c04e57a157ba015b317ce20
+baidu_tongji_id: 5668bc69714b00f2f64618f56952d0b4
 google_analytics_id: UA-72449510-4 # google 分析追踪id
 
 # Build settings
