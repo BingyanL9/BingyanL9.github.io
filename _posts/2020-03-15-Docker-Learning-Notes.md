@@ -2,7 +2,7 @@
 layout: post
 title:  "[初级]-Docker-学习笔记"
 date:   2020-03-14 21:18:54
-categories: Docker
+categories: Docker Foundational 
 tags: Docker Notes
 excerpt: Docker学习笔记，上传本地笔记。
 mathjax: true
