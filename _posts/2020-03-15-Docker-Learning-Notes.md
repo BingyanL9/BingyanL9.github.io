@@ -11,7 +11,7 @@ mathjax: true
 * content
 {:toc}
 
-> Docker是一个基于基于Golang的开源项目，Docker 项目的目标是实现**轻量级的操作系统虚拟化**解决方案，由于工作需要作者开始学习Docker。
+> Docker是一个基于Golang的开源项目，Docker 项目的目标是实现**轻量级的操作系统虚拟化**解决方案，由于工作需要作者开始学习Docker。
 
 ## Docker简介
 
