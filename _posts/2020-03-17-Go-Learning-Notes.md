@@ -2,7 +2,7 @@
 layout: post
 title:  "语言类型解释"
 date:   2020-03-17 21:18:54
-categories: Fundation
+categories: Foundation
 tags: Notes Language
 excerpt: 学习任何语言最初的时候我们都会被告知这个语言是静态或者动态的语言。那么这些概念究竟是什么意思呢？本篇笔记进行详细解释
 mathjax: true
