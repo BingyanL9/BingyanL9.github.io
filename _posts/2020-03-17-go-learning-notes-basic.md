@@ -3,7 +3,7 @@ layout: post
 title:  "Go - 简介"
 date:   2020-03-20 21:18:54
 categories: Foundation Go
-tags: Notes Go Varaible
+tags: Notes Go Basic
 excerpt: Go 语言不仅可以访问底层操作系统，还提供强大的网络编程和并发编程的支持。可以进行网络编程、系统编程、并发编程、分布式编程。目前很多重要的开源项目都是使用 Go 语言进行开发如 Go语言、Docker、Kubernate、etcd等。毫不夸张的说，要学习并理解云服务相关的技术，学习 Go 是必不可少的。
 mathjax: true
 ---
