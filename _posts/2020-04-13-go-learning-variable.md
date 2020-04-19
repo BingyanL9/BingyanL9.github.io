@@ -3,7 +3,7 @@ layout: post
 title:  "Go - 变量简介"
 date:   2020-04-13 21:18:54
 categories: Go Foundation
-tags: Notes Go VariableVariable
+tags: Notes Go Variable
 excerpt: Go变量简介
 mathjax: true
 ---
