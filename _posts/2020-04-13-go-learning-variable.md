@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Go - 变量简介"
+title:  "Go - 变量（一）"
 date:   2020-04-13 21:18:54
 categories: Go Foundation
 tags: Notes Go Variable
