@@ -7,7 +7,7 @@
 
 # Site settings
 title: LBY
-brief-intro: Learning Notes and think
+brief-intro: Learning Notes and Think
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bingyanl9.github.io/bingyanl-blog/" # the base hostname & protocol for your site
 
