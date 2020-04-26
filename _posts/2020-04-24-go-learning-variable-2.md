@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Go - 变量（二）- 基础数据类型"
-date:   2020-04-25 21:18:54
+date:   2020-04-24 21:18:54
 categories: Go Foundation
 tags: Notes Go Variable
 excerpt: Go变量 - 基础数据类型
