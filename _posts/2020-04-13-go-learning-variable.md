@@ -222,11 +222,11 @@ func main() {
     形式参数会作为函数的局部变量来使用。
 
 
-## 笔记来源
+### 笔记来源
 
 [C语言中文网：Go语言简介](http://c.biancheng.net/golang/intro/)
 
-[命名：Go语言圣经](https://docs.hacknode.org/gopl-zh/ch2/ch2-01.html)
+[Go语言圣经:命名](https://docs.hacknode.org/gopl-zh/ch2/ch2-01.html)
 
 
 
