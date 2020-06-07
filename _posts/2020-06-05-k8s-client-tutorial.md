@@ -239,7 +239,7 @@ API 封装类的文档命名规则是：apiGroup + 版本信息 + api.md
 
 在一个集群中配置 kubeconfig 文件的时候， 默认会生成一个短期的，集群范围的，特定用户的token。 我们上一步骤复制出来的 config 文件中包含的就是这样的短期的，针对特定用户的token。
 
-生产环境中的产品不断的去修改 kubernates 用户的 token 是极其不现实的， 我们需要长期的，不针对特定用户的token。
+生产中的产品不断的去修改 kubernates 用户的 token 是极其不现实的， 我们需要长期的，不针对特定用户的token。
 
 其中一种解决方案就是使用 Kubernetes service account：
 
