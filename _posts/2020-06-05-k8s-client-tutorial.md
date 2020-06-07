@@ -261,7 +261,7 @@ API 封装类的文档命名规则是：apiGroup + 版本信息 + api.md
     expected output: clusterrolebinding.rbac.authorization.k8s.io/<binding-name> created
     ```
 
-3. 获取 service account authentication token 的名字， 并将其付给环境变量
+3. 获取 service account authentication token 的名字， 并将其赋给环境变量
 
     ```
     TOKENNAME=`kubectl -n kube-system get serviceaccount/<service-account-name> -o jsonpath='{.secrets[0].name}'`
