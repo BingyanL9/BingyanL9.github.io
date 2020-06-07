@@ -41,7 +41,7 @@ REST API 是 Kubernates 提供给用户去操作资源的基础架构。使用 k
 |PATCH/apis(api)/[api组名]/版本/[资源名的复数形式]/[名字]|选择修改资源详细指定的域|
 |PUT/apis(api)/[api组名]/版本/[资源名的复数形式]/[名字]|通过给出的资源的资源名和用户提供的yaml文件（最终转换成Json对象）来更新或者创建资源|
 |DELETE/apis(api)/[api组名]/版本/[资源名的复数形式]/[名字]|通过给出的资源名删除指定的资源，删除选项（DeleteOptions）中可以指定优雅删除（Grace Deletion）的时间（GracePeriodSeconds），该配置表示从服务器接收到删除请求到删除的时间间隔，单位为秒。|
-|GET/apis|(api)/[api组名]/版本/watch/[资源名的复数形式]|不断接受一连串的Json对象，记录给定资源类别内的资源随时间的变化情况|
+|GET/apis(api)/[api组名]/版本/watch/[资源名的复数形式]|不断接受一连串的Json对象，记录给定资源类别内的资源随时间的变化情况|
 
 - API 组名
 
