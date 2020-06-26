@@ -212,7 +212,7 @@ Kubernates 服务是一种为一组功能相同的 pod 提供单一不变的接�
 
 2. 将服务的类型设置成 LoadBalance, NodePort的一种扩展
 
-3. 创建一个 Ingress 资源，通过一个 IP 地址公开多个服务（Ingress 中介绍）
+3. 创建一个 Ingress 资源，通过一个 IP 地址公开多个服务（Service 二 中介绍）
 
 #### NodePort 暴露服务
 
