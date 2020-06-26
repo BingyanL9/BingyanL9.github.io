@@ -13,48 +13,50 @@ mathjax: true
 
 > map 是一种特殊的数据结构，一种元素对（pair）的无序集合，pair 对应一个 key（索引）和一个 value（值），所以这个结构也称为**关联数组或字典**，这是一种能够快速寻找值的理想结构，给定 key，就可以迅速找到对应的 value。
 
-### 声明和初始化
+### **声明和初始化**
 
-1. 声明
+#### 声明
+
+```
+map 是引用类型，可以使用如下方式声明：
+var mapname map[keytype]valuetype
+
+[keytype] 和 valuetype 之间允许有空格。
+
+在声明的时候不需要知道 map 的长度，因为 map 是可以动态增长的，未初始化的 map 的值是 nil，使用函数 len() 可以获取 map 中 pair 的数目
+```
+
+#### 初始化
+
+- 字面量
 
     ```
-    map 是引用类型，可以使用如下方式声明：
-    var mapname map[keytype]valuetype
-
-    [keytype] 和 valuetype 之间允许有空格。
-
-    在声明的时候不需要知道 map 的长度，因为 map 是可以动态增长的，未初始化的 map 的值是 nil，使用函数 len() 可以获取 map 中 pair 的数目
+    hash := map[string]int{
+        "1":2,
+        "3":4,
+        "5":6,
+    }
     ```
 
-2. 初始化
+- make
 
-    - 字面量
-        ```
-        hash := map[string]int{
-            "1":2,
-            "3":4,
-            "5":6,
-        }
+    ```
+    和数组不同，map 可以根据新增的 key-value 动态的伸缩，因此它不存在固定长度或者最大限制，但是也可以选择标明 map 的初始容量 capacity
+    make(map[keytype]valuetype, cap)
+
+    make(map[string]float, 100)
+    当 map 增长到容量上限的时候，如果再增加新的 key-value，map 的大小会自动加 1，所以出于性能的考虑，对于大的 map 或者会快速扩张的 map，即使只是大概知道容量，也最好先标明。
+
     ```
 
-    - make
-        ```
-        和数组不同，map 可以根据新增的 key-value 动态的伸缩，因此它不存在固定长度或者最大限制，但是也可以选择标明 map 的初始容量 capacity
-        make(map[keytype]valuetype, cap)
+- 使用切片作为map的值
 
-        make(map[string]float, 100)
-        当 map 增长到容量上限的时候，如果再增加新的 key-value，map 的大小会自动加 1，所以出于性能的考虑，对于大的 map 或者会快速扩张的 map，即使只是大概知道容量，也最好先标明。
+    ```
+    mp1 := make(map[int][]int)
+    mp2 := make(map[int]*[]int)
+    ```
 
-        ```
-
-    - 使用切片作为map的值
-
-        ```
-        mp1 := make(map[int][]int)
-        mp2 := make(map[int]*[]int)
-        ```
-
-### 遍历
+### **遍历**
 
 ```
 //遍历键值对
@@ -112,7 +114,7 @@ sout.Stirngs(soutList)
 fmt.Println(sceneList) //[brazil china route]
 ```
 
-### 删除和清空
+### **删除和清空**
 
 #### 删除
 
@@ -142,7 +144,7 @@ for k,v := range iteratorMap {
 
 Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。
 
-### 多键索引 - 多个数值条件可以同时查询
+### **多键索引 - 多个数值条件可以同时查询**
 
 ```
 // 人员档案
@@ -202,7 +204,7 @@ func queryData(name string, age int){
 
 - 函数、闭包不能作为 map 的键
 
-### sync.Map
+### **sync.Map**
 
 **Go语言中的 map 在并发情况下，只读是线程安全的，同时读写是线程不安全的**
 
@@ -281,7 +283,7 @@ func main() {
 
 sync.Map 没有提供获取 map 数量的方法，替代方法是在获取 sync.Map 时遍历自行计算数量，sync.Map 为了保证并发安全有一些性能损失，因此在非并发情况下，使用 map 相比使用 sync.Map 会有更好的性能。
 
-### 笔记来源
+### **笔记来源**
 
 [C 语言中文网：Go语言map（Go语言映射）](http://c.biancheng.net/view/31.html)
 
