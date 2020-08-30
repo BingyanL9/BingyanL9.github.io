@@ -1,0 +1,30 @@
+## install oc cli
+
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.3.8.tar.gz
+tar -zxvf openshift-client-linux-4.3.8.tar.gz
+chmod +x ./oc
+chmod +x ./kubectl
+sudo mv ./oc /usr/local/bin/oc
+sudo mv ./kubectl /usr/local/bin/kubectl
+oc version
+kubectl version --client
+
+## expose openshift image register
+
+oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
+
+HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
+
+podman login -u kubeadmin -p $(oc whoami -t) --tls-verify=false $HOST
+
+
+# how to create service account and create long-term token
+oc login --token=B4jfPCsK_S0DyOkmNUv86AbR2oo3zASzn1-qgAgLOl0 --server=https://api.listed.os.fyre.ibm.com:6443
+kubectl -n kube-system create serviceaccount ida-service-account
+kubectl create clusterrolebinding ida-clusterrolebinding --clusterrole=cluster-admin --serviceaccount=kube-system:ida-service-account
+TOKENNAME=`kubectl -n kube-system get serviceaccount/ida-service-account -o jsonpath='{.secrets[0].name}'`
+TOKEN=`kubectl -n kube-system get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
+kubectl config set-credentials ida-service-account --token=$TOKEN
+kubectl config set-context --current --user=ida-service-account
+#Check if the current user added successfully.And get the token for the newly added user.
+oc config view

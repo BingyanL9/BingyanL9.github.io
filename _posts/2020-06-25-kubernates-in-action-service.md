@@ -2,7 +2,7 @@
 layout: post
 title:  "K8s - Service(-) "
 date:   2020-06-25 21:18:54
-categories: K8s Service(-)
+categories: K8s Service
 tags: K8s Service Foundation
 excerpt: 服务：让客户端发现pod并与之通信
 mathjax: true
@@ -43,7 +43,7 @@ Kubernates 服务是一种为一组功能相同的 pod 提供单一不变的接�
     spec:
       ports:
       - port: 80 ## 该服务的可用端口
-        targetPort: 8080 ## 服务将连接转发到的容器端口
+        targetPort: 8081 ## 服务将连接转发到的容器端口
       selector:
         app: kubia ## 具有app=kubia标签的pod都属于该服务
     ```
@@ -99,12 +99,12 @@ Kubernates 服务是一种为一组功能相同的 pod 提供单一不变的接�
     apiVerision: v1
     kind: service
     metadata: 
-    name: kubia
+      name: kubia
     spec: 
     ports:
     - name: http
       port: 8080
-      targetPort: 8080
+      targetPort: 8081
     
     - name: https
       port: 443
@@ -178,7 +178,7 @@ Kubernates 服务是一种为一组功能相同的 pod 提供单一不变的接�
 1. 创建没有选择器的服务
 
     ```
-    apiVersion: v1
+  apiVersion: v1
 	kind: Service
 	metadata:
 	  name: external-service
@@ -190,7 +190,7 @@ Kubernates 服务是一种为一组功能相同的 pod 提供单一不变的接�
 2. 为没有选择器的服务创建Endpoint资源
 
     ```
-    apiVersion: v1
+  apiVersion: v1
 	kind: Endpoints
 	metadata:
 	  name: external-service ##和service的名字一样
