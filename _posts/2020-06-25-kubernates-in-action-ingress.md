@@ -278,7 +278,7 @@ curl -k -v https://kubia.example.echo-practice.apps.listed.os.fyre.ibm.com/
 
      ```
 
-5. 如果尝试通过 FQDN 或其中的一部分来访问服务：
+5. 如果尝试通过 FQDN 或其中的一部分来访问服务， 如以下，不起作用，请检查是否可以使用其集群 IP 而不是 FQDN 来访问。
 
     ```
     eg:
@@ -287,7 +287,6 @@ curl -k -v https://kubia.example.echo-practice.apps.listed.os.fyre.ibm.com/
     myservice.mynamespace
     ```
 
-不起作用，请检查是否可以使用其集群 IP 而不是 FQDN 来访问。
 
 6. 检查是否连接到服务公开的端口，而不是目标端口
 
