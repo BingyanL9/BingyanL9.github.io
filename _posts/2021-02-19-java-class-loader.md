@@ -17,9 +17,7 @@ mathjax: true
 
 加载 -> 连接（验证-> 准备 -> 解析）-> 初始化 -> 使用 -> 卸载
 
-1. 加载 
-
-二进制字节流（.class）从磁盘读到内存。通过类全限定名称读取(package + class name eg:java.lang.String)
+1. 加载 二进制字节流（.class）从磁盘读到内存。通过类全限定名称读取(package + class name eg:java.lang.String)
 
 2. 连接
 
@@ -61,7 +59,7 @@ mathjax: true
 
 加载用户自定义路径下的类包
 
-### 类加载机制
+## 类加载机制
 
 1. 全盘负责委托机制
 
