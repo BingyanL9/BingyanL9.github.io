@@ -21,43 +21,35 @@ mathjax: true
 
 2. 连接
 
-·验证： 验证字节码文件的正确性
+    ·验证： 验证字节码文件的正确性
 
-·准备: 给类的静态变量分配内存并赋予默认值（未初始化）
+    ·准备: 给类的静态变量分配内存并赋予默认值（未初始化）
 
-·解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
+    ·解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
 
 3. 初始化
 
-为类的静态变量赋予正确的初始值，真正初始化。 执行静态代码块。
+    为类的静态变量赋予正确的初始值，真正初始化。 执行静态代码块。
 
 4. 卸载
 
 类结束生命周期：
 
-·程序正常执行结束/异常结束
+    ·程序正常执行结束/异常结束
 
-·操作系统异常，进程结束
+    ·操作系统异常，进程结束
 
-.system.exit()
+    .system.exit()
 
 ### 类加载器
 
-1. bootstrap classloader (启动类加载器)
+1. bootstrap classloader (启动类加载器) 加载JRE核心类库。 如JRE下的 rt.jar,charsets.jar
 
-加载JRE核心类库。 如JRE下的 rt.jar,charsets.jar
+2. extensions classloader (扩展类加载器) 加载JRE扩展目录下(ext)中jar类包
 
-2. extensions classloader (扩展类加载器)
+3. application classloader (系统类加载器) 加载classPath路径下的类
 
-加载JRE扩展目录下(ext)中jar类包
-
-3. application classloader (系统类加载器)
-
-加载classPath路径下的类
-
-4. user classloader (用户自定义加载器)
-
-加载用户自定义路径下的类包
+4. user classloader (用户自定义加载器) 加载用户自定义路径下的类包
 
 ### 类加载机制
 
@@ -73,6 +65,6 @@ mathjax: true
 
 优势： 
 
-·沙箱安全机制： 防止JRE核心类库被随意篡改
+    ·沙箱安全机制： 防止JRE核心类库被随意篡改
 
-·避免类的重复加载： 当父classloader已经加载了该类的时候，子classloader就不需要再次加载了。
+    ·避免类的重复加载： 当父classloader已经加载了该类的时候，子classloader就不需要再次加载了。
