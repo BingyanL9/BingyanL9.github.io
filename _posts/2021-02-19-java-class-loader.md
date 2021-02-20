@@ -21,11 +21,11 @@ mathjax: true
 
 2. 连接
 
-· 验证： 验证字节码文件的正确性
+·验证： 验证字节码文件的正确性
 
-· 准备: 给类的静态变量分配内存并赋予默认值（未初始化）
+·准备: 给类的静态变量分配内存并赋予默认值（未初始化）
 
-· 解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
+·解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
 
 3. 初始化
 
@@ -35,11 +35,11 @@ mathjax: true
 
 类结束生命周期：
 
-· 程序正常执行结束/异常结束
+·程序正常执行结束/异常结束
 
-· 操作系统异常，进程结束
+·操作系统异常，进程结束
 
-. system.exit()
+.system.exit()
 
 ### 类加载器
 
@@ -73,6 +73,6 @@ mathjax: true
 
 优势： 
 
-    · 沙箱安全机制： 防止JRE核心类库被随意篡改
+·沙箱安全机制： 防止JRE核心类库被随意篡改
 
-    · 避免类的重复加载： 当父classloader已经加载了该类的时候，子classloader就不需要再次加载了。
+·避免类的重复加载： 当父classloader已经加载了该类的时候，子classloader就不需要再次加载了。
