@@ -13,7 +13,7 @@ mathjax: true
 
 > JAVA classloader
 
-## 类的生命周期
+### 类的生命周期
 
 加载 -> 连接（验证-> 准备 -> 解析）-> 初始化 -> 使用 -> 卸载
 
@@ -21,11 +21,11 @@ mathjax: true
 
 2. 连接
 
-    · 验证： 验证字节码文件的正确性
+· 验证： 验证字节码文件的正确性
 
-    · 准备: 给类的静态变量分配内存并赋予默认值（未初始化）
+· 准备: 给类的静态变量分配内存并赋予默认值（未初始化）
 
-    · 解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
+· 解析： 类装载器（user classloader -> application classloader -> extensions classloader -> bootstrap classloader）装入类所引用的其他所有类（静态链接）
 
 3. 初始化
 
@@ -35,13 +35,13 @@ mathjax: true
 
 类结束生命周期：
 
-    · 程序正常执行结束/异常结束
+· 程序正常执行结束/异常结束
 
-    · 操作系统异常，进程结束
+· 操作系统异常，进程结束
 
-    . system.exit()
+. system.exit()
 
-## 类加载器
+### 类加载器
 
 1. bootstrap classloader (启动类加载器)
 
@@ -59,7 +59,7 @@ mathjax: true
 
 加载用户自定义路径下的类包
 
-## 类加载机制
+### 类加载机制
 
 1. 全盘负责委托机制
 
