@@ -1,0 +1,43 @@
+1. 如何采集日志等数据信息
+
+埋点方案
+
+·硬编码
+
+.AOP拦截
+
+·动态字节码插桩 （直接线上监控，不需要改代码，灵活）
+
+ - java agent （拦截classloader）
+
+ - 修改字节码：ASM,javassist
+
+        ```
+        /**
+        * javaagent 就是就是一种jar包
+        *
+        *               运行时jar       javasgent.jar
+        * 启动方法      main            premain
+        * 启动命令      java -jar XX.jar 附着 -javaagent：XXX.jar
+        */
+
+        public static void premain(String args, Instrumentation instrumentation) {
+                //会在main方法之前打印出来
+                system.out.println("***");
+
+                //修改字节码：
+                if (!"com/coderead/test/LubanAgentTest".equals(classNameclassName)){
+                        return null;
+                }
+
+                ClassPool pool = new ClassPool();
+                pool.appendSystemPath();
+                try {
+                        ctClass ctclass = pool.get("com.coderead.test.LubanAgentTest");
+                        CtMethod ctmethod = ctclass.getDeclaredMethods()[0];
+                        mainMethod.insertBefore("long begin = System.currentTimeMillis()");
+                        mainMethod.insertBefore("long end = System.currentTimeMillis()");
+                }
+        }
+        ```
+
