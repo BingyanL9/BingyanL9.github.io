@@ -2,7 +2,7 @@
 layout: post
 title:  "Java 设计模式"
 date:   2021-02-16 21:18:54
-categories: Java Design-patten
+categories: Java Design-pattern
 tags: Java
 excerpt: Java 设计模式
 mathjax: true
@@ -198,7 +198,7 @@ mathjax: true
         }
     }
     ```
-    
+
 ## 策略模式
 
 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。
