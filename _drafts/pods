@@ -1,0 +1,87 @@
+	1. pod是kubernates中最重要的核心概念，而其他对象仅仅是在管理、暴露pod或者被pod使用。
+	
+	2. 同一个pod中容器之间的我们需要部分隔离，因为同一个pod中的容器中的进程需要共享资源进行通信。Kubernetes通过配置Docker来让一个pod内的所有容器共享相同的liniux命名空间，而不是每个容器都有自己的一组命名空间。因此一个pod内的容器共享相同的主机名和网络接口。
+	3. 同一个pod中的所有容器也都具有相同的loopback网络接口，因此容器可以通过localhost与同一个pod中的其他容器进行通信。
+	4. 通过pod合理管理容器:
+	· 将多层应用分散到多个pod中，这些pod分散到不同节点上，合理利用计算资源。
+	· 基于缩扩容考虑分割到多个pod。pod是扩缩容的基本单位。
+	· 何时在同个pod中使用多个容器：应用由一个主进程和多个辅助进程组成。
+	· 决定何时在pod中使用多个容器: 他们是否可以在不同的主机上运行？他们代表一个整体还是互相独立的组件？他们必须一起进行扩缩容还是可以分别进行?
+	5. 创建-yaml/json
+	· 检查现有pod的yaml描述文件 kubectl get po [pod-name] -o yaml
+	· pod定义的主要部分:
+	1· yaml中使用的kubernetes API的版本以及YAML描述的资源类型
+	2· kubernetes资源中3大重要部分:
+	    1). Metadata :名称、命名空间、标签和关于该容器的其他信息；
+	    2). Spec :pod内容的实际说明，pod的容器、卷和其他数据；
+	    3). Status :运行中的pod的当前信息，pod所处在的条件、每个容器的描述和状态以及内部IP和其他基本信息。（创建不需要提供这个信息）
+	· 使用kubectl explain 来发现可能的api对象字段,看看都是怎麽用的。Eg: kubectl explain pod.spec
+	· 使用kubectl create -f来从yaml或者json文件创建任何kubernetes资源。Eg: kubectl create -f kubia-manual.yaml
+	6. 查看应用程序日志 使用kubectl logs [pod name]查看pod中容器的日志
+	Important：每天或者每次日志文件达到10mb大小时，容器日志都会自动轮替。Kubectl logs获取的是最后一次轮替之后的日志条目。
+	获取多容器pod的日志时指定容器名称： kubectl logs [pod-name] -c [docker-name] eg： kubectl logs kubia-manual -c kubia.
+	当一个pod被删除时，其日志也会被删除。
+	7. 将本地网络端口转发到pod的端口上, 在不用services管理的前提下怎么在外部访问pod，使用kubectl portforward代理: kubectl port-forward  eg: kubectl port-forward kubia-manual 8888:8080
+	8. 使用标签组织pod 标签名称可以自定义 [key, value]
+	    假设每個pod都有两个标签: app/rel
+		App: pod属于哪一个应用、组件或微服务
+		Rel: pod中运行的应用程序版本-stable、beta、canary
+	    创建pod时指定标签： 
+		![](\images\drafts\pod_label.png)
+	
+	查看pod的标签: kubectl get po --show-labels
+	![](\images\drafts\show-labels.png)
+	
+	已知标签key的情况下查看pod: kubectl get po -L creation_method,env
+	![](\images\drafts\show-pod-according-key.png）
+	
+	· 为现有的pod添加标签
+	-kubectl label po [pod-name] [label-key]=[label-value] 
+	eg: kubectl label po kubia-manual creation_method=manual
+	· 修改pod的标签值
+	-kubectl label po [pod-name] [label-key]=[label-new-value] --overwrite
+	eg: kubectl label po kubia-manual-v2 env=debug --overwrite   
+	
+	9. 标签选择器:
+	标签选择器根据资源的以下条件来选择资源:
+	·包含(不包含)使用特定键的标签 kubuctl get po -l [label-key] |  kubuctl get po -l '![label-key]' 
+	·包含具有特定键和值的标签 kubuctl get po -l [label-key]=[label-value] | kubuctl get po -l [label-key] in (label-value1,label-value2···)
+	·包含具有特定键的标签，但其值与我们指定的不同  kubuctl get po -l [label-key]!=[label-value] | kubuctl get po -l [label-key] notin (label-value1,label-value2···)
+	
+	1）使用标签选择器 单条件
+	 eg: kubectl get po -l creation_method=manual
+	       kubectl get po -l creation_method!=manual
+	       kubectl get po -l env
+	1）使用标签选择器 多条件：-l 多个条件通过 ; 分割开，可以在标签选择器中同时使用多个条件，且的关系，必须全部必配才会列出来
+	 eg:  kubectl get po -l creation_method,env
+	
+	10. 使用标签和选择器来约束pod调度- 节点标签和节点选择器 
+	1）对节点添加标签和pod类似
+	2）将pod调度到特定节点:
+    ![](\images\drafts\select-node.png)
+	
+	3）调度到特定的一个节点
+	每个节点都有一个唯一的标签:[kubernetes.io/hostname:hostname],因此我们可以通过指定hostname调度到特定的一个节点
+	Important: 如果该节点处于离线状态，通过hostname标签将nodeSelector设置为特定节点可能会导致pod不可调度。因此这种方法不建议使用
+	
+	11. 注解pod
+	1）为pod添加注解：kubectl annotate pod [pod-name] [key]=[value]
+	2）修改pod的注解：kubectl annotate pod [pod-name] [key]=[new value] --overwrite
+	12. Kubernetes 命名空间对资源进行分组, 命名空间为资源名称提供了一个作用域，不同命名空间下的资源名称可以一样
+	1）获取集群中的命名空间: kubectl get ns
+	2）获取指定命名空间下的pod: kubectl get po --namespace [ns-name] |  kubectl get po --n [ns-name]
+	3）创建命名空间 yaml 
+	![](\images\drafts\create-namespace.png）
+	
+	Or kubectl create namespace [namespace-name]
+	4）在创建的命名空间内创建资源
+	· 在yaml文件中 metadata.namespace:[namespace-name]
+	· 或者kubectl create -f [yaml-name] -n [namespace-name] eg: kubectl create -f kubia-gpu.yaml -n custom-namespace
+	13. 停止和移除pod
+	1）kubectl delete po [po-name1 po-name2]
+	2）kubectl delete po -l [label-key=label-value] eg:kubectl delete po -l creation_method=manual
+	3）通过删除整个命名空间来删除pod: kubectl delete ns [namespace-name]
+	4）删除当前命名空间下的所有po ：kubectl delete po --all
+	5）删除当前命名空间下的所有资源：kubectl delete all --all
+	14. 在pod容器中运行shell
+	· kubectl exec -it [container-name] bash

@@ -1,0 +1,32 @@
+	1. Kubelet: 运行调度到某个节点的pod，并且在pod中容器主进程崩溃时，重新启动容器。
+	2. Liveness probe（活性探针）：检查容器是否在运行。如果探测失败，kubenetes会定期执行探针并重新启动容器：
+        3.1 kubernetes的三种探测容器的机制：
+        1）Http get探针：发送指定ip，端口和路径的请求，如果返回2XX或者3XX则成功。如果返回错误响应状态码或者没有响应，则失败，重启容器；
+        ![](\images\drafts\livenessProbe.png)
+
+    检查活性探针是否工作:
+    ![](\images\drafts\livenessProbe_check.png)
+
+	也可以通过检查日志查看情况:
+
+	- kubectl logs kubia-liveness --previous
+
+	- Kubectl describe po kubia-liveness 查看详细信息
+
+	![](\images\drafts\liveness_describe.png)
+
+	·探针附加属性：delay容器启动后多久开始探测 / timeout容器响应时间 / period多久探测一次 /failure失败几次重启容器
+	![](\images\drafts\liveness_timeout.png)
+
+	一般情况下需要设置初始延迟，因为需要给时间来应用去启动，否则会一直重启。
+
+	设置初始延迟:
+	![](\images\drafts\liveness_set_delay_second.png)
+    
+	2）TCP套接字探针：与容器指定端口建立TCP连接；
+	3）Exec探针：在容器内执行任意命令，并检查退出状态码，0成功，否则失败。
+	3.2  创建有效的存活探针:
+	一般情况下检查服务器是否响应就已经足够。更好:
+	将探针配置为请求特定的url路径（/health）并让应用从内部对内部运行的所有重要部件执行状态检查。
+	· 保持探针轻量，存活探针不应该消耗太多的计算资源！
+· 无需在探针中实现重试循环，因为在外部可配置。
